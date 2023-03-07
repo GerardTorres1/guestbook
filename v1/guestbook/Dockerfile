@@ -19,10 +19,10 @@ RUN go build main.go
 
 FROM ubuntu:18.04
 COPY --from=builder /go//main /app/guestbook
-RUN public/index.html /app/public/index.html
-RUN public/script.js /app/public/script.js
-RUN public/style.css /app/public/style.css
-RUN public/jquery.min.js /app/public/jquery.min.js
+COPY public/index.html /app/public/index.html
+COPY public/script.js /app/public/script.js
+COPY public/style.css /app/public/style.css
+COPY public/jquery.min.js /app/public/jquery.min.js
 
 WORKDIR /app
 CMD ["./guestbook"]
