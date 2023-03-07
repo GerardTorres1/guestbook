@@ -10,6 +10,11 @@
 # PULL
 # WORKDIR
 
+COPY main.go .
+RUN go build main.go
+ADD public/index.html /app/public/index.html
+
+
 
 FROM golang:1.15 as builder
 RUN go get github.com/codegangsta/negroni
